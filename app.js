@@ -13,13 +13,16 @@ var io = require('socket.io')(http);
 var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
-const config = require('./config/database');
+//const config = require('./config/database');
+mongoose.connect('mongodb://localhost/loginapp');//it provide local connection with database
+var db = mongoose.connection;
 
-mongoose.connect(config.database);
+//for hosting use config.database and uncomment it
+//mongoose.connect(config.database);
 // On Connection
-mongoose.connection.on('connected', () => {
-  console.log('Connected to Database '+config.database);
-});
+//mongoose.connection.on('connected', () => {
+ // console.log('Connected to Database '+config.database);
+//});
 // On Error
 mongoose.connection.on('error', (err) => {
   console.log('Database error '+err);
