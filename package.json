@@ -1,0 +1,31 @@
+{
+  "name": "NodeJs_Assignment_Blog",
+  "version": "1.0.0",
+  "description": "Simple Blog system",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anuj Srivastava",
+  "license": "NO_Lisence",
+  "dependencies": {
+    "app": "^0.1.0",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect": "^3.6.6",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "*",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.0.3",
+    "mongodb": "^3.0.5",
+    "mongoose": "*",
+    "passport": "^0.4.0",
+    "passport-http": "*",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.1.0"
+  }
+}
