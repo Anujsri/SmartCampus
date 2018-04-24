@@ -1,4 +1,4 @@
-# Node.js BlogApp
+# Node.js LoginApp
 
 This is a user login and registration using Node.js, Express, Passport,RestApi and Mongoose.  
 
