@@ -1,0 +1,34 @@
+<div class="container">
+<center><h4 class="text-infor">Booking Reqests</h4></center>
+{{#if room}}
+  <div class="row">
+
+ {{#each room}}
+  {{#if this.booked}}
+    
+  {{else}}
+      <div class="col-md-4"  >
+      	<div class="modal-body">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info">Information of Room Booking</li>
+            <li class="list-group-item">Room Name : {{this.room_name}}</li>
+            <li class="list-group-item">Visitor Name : {{this.name}}</li>
+            <li class="list-group-item">Email : {{this.email}}</li>
+            <li class="list-group-item">For days : {{this.days}} Days</li>
+        </ul>
+        <div class="pull-left">
+        	<a href="/accept/{{this._id}}" class="btn btn-success" >Accept</a>
+        </div>
+         <div class="pull-right">
+        	<a href="/reject/{{this._id}}" class="btn btn-danger" >Reject</a>
+        </div>
+    </div>
+      </div>	
+   {{/if}}
+  {{/each}}
+   </div>  
+{{else}}
+<center><h4>No Booking request</h4></center>
+{{/if}}
+
+</div>

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
+var Room = require('../models/room');
 var User = require('../models/user');
 
 
@@ -27,7 +27,7 @@ router.post('/register', (req, res)=>{
 	var password = req.body.password;
 	var password2 = req.body.password2;
 	var phone = req.body.phone;
-	var dob = req.body.dob;
+  var usertype = req.body.usertype;
 
 	// Validation
 	req.checkBody('name', 'Name is required').notEmpty();
@@ -36,8 +36,7 @@ router.post('/register', (req, res)=>{
 	req.checkBody('username', 'Username is required').notEmpty();
 	req.checkBody('password', 'Password is required').notEmpty();
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-	req.checkBody('phone', 'Phone is required').notEmpty();
-	req.checkBody('dob', 'DOB is required').notEmpty();
+	req.checkBody('phone', 'Phone is required').notEmpty(); 
 
 	var errors = req.validationErrors();
 
@@ -50,17 +49,18 @@ router.post('/register', (req, res)=>{
 			name: name,
 			email:email,
 			username: username,
-			password: password
+			password: password,
+      usertype : usertype
 		});
 
 		User.createUser(newUser,(err, user)=>{
 			if(err) throw err;
-			console.log(user);
-		});
-
-		req.flash('success_msg', 'You are registered and can now login');
+			req.flash('success_msg', 'You are registered and can now login');
 
 		res.redirect('login');
+		});
+
+		
 	}
 });
 
@@ -109,6 +109,8 @@ router.get('/logout', (req, res)=>{
 
 	res.redirect('/users/login');
 });
+
+
 
  
 module.exports = router;

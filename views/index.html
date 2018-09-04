@@ -1,0 +1,42 @@
+
+<div class="container">
+ 
+ <h4 class="text-info"><center>Welcome to Visitor Hostel page<center></h4>
+  <div class="pull-left">
+    <a  href="/bookroom/{{user._id}}" class="btn btn-info active">Booked Room Status</a> 
+   </div>
+ <div class="pull-right">
+    <a  href="/" class="btn btn-info active">Book Room</a> 
+   </div>
+ <br/>
+   <br/>
+   
+   <div class="row">
+   	<div class="col-md-3"></div>
+   	  <div class="col-md-6">
+   	  	<form method="post" action="/bookroom/{{user._id}}">
+   	  		<div class="form-group">
+              <label for="sel1">Select Room</label>
+                <select class="form-control" id="room_name" name="room_name" required>
+                    <option value="CR 101">CR 101</option>
+                    <option value="Cr 102">Cr 102</option>
+                    <option value="CR 103">CR 103</option>
+                    <option value="CR 104">CR 104</option>
+                </select>
+             </div>
+             <div class="form-group">
+              <label for="sel1">Number of days</label>
+               <input class="form-control" type="number" name="days" placeholder="Enter days" required>
+             </div>
+             <div class="pull-right">
+             	<button type="submit" class="btn btn-success" name="submit">Book Room</button>
+             </div>
+             
+   	  	</form>
+   	  </div>
+   </div>
+ 
+        
+
+ </div>
+ 

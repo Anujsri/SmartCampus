@@ -1,0 +1,37 @@
+<div class="container">
+	<h4 class="text-info"><center>Welcome to Visitor Hostel page<center></h4>
+  <div class="pull-left">
+    <a  href="/bookroom/{{user._id}}" class="btn btn-info active">Booked Room Status</a> 
+   </div>
+ <div class="pull-right">
+    <a  href="/" class="btn btn-info active"> Book Room</a> 
+   </div>
+   <br/>
+   <br/>
+   {{#if room}}
+	<div class="row">
+		{{#each room}}
+      <div class="col-md-3" >
+        <div class="modal-body">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info">Information of Room Booking</li>
+            <li class="list-group-item">Room Name : {{this.room_name}}</li>
+            <li class="list-group-item">For days : {{this.days}} Days</li>
+            {{#if this.booked}}
+             <li class="list-group-item">Accepted : Yes</li>
+            {{else}}
+            <li class="list-group-item">Accepted : No</li>
+            {{/if}}
+        </ul>
+     
+        
+    </div>
+      </div> 
+      {{/each}} 
+    </div>  
+    {{else}}
+    <center><h4>You have not book any room yet.</h4>
+    	<a  href="/book" class="btn btn-info active">Book Room</a> 
+     </center>
+    {{/if}}
+</div>

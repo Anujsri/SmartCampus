@@ -16,11 +16,12 @@ var UserSchema = mongoose.Schema({
 	name: {
 		type: String
 	},
-	dob: {
-		type: Date
-	},
 	phone: {
 		type: Number
+	},
+	usertype : {
+		type : String,
+		default : "User"
 	}
 });
 

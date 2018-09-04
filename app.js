@@ -17,13 +17,6 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/loginapp');//it provide local connection with database
 var db = mongoose.connection;
 
-//for hosting use config.database and uncomment it
-//mongoose.connect(config.database);
-// On Connection
-//mongoose.connection.on('connected', () => {
- // console.log('Connected to Database '+config.database);
-//});
-// On Error
 mongoose.connection.on('error', (err) => {
   console.log('Database error '+err);
 });
@@ -31,12 +24,13 @@ mongoose.connection.on('error', (err) => {
 User = require('./models/user.js');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+ 
 
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+app.engine('html', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'html');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -91,7 +85,7 @@ app.use( (req, res, next)=> {
 
 app.use('/', routes);
 app.use('/users', users);
-
+ 
 // Set Port
 http.listen(process.env.PORT || 3000,function(){
   console.log('listening on', http.address().port);
