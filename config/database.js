@@ -1,6 +1,6 @@
 module.exports = {
   
-  database: 'mongodb://anuj96:anuj96@ds255329.mlab.com:55329/loginapp',
+  database: 'mongodb://username:password@ds255329.mlab.com:55329/loginapp',
   
   secret: 'yoursecret'
 }
